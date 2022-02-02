@@ -13,7 +13,11 @@
     />
   </head>
   <body>
-    <form>
+    <form
+      id="form"
+      method="POST"
+      action="https://striveschool-api.herokuapp.com/api/product/"
+    >
       <div class="form-group">
         <input
           type="text"
@@ -31,14 +35,7 @@
           placeholder="Insert description"
         />
       </div>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          id="brand"
-          placeholder="Insert Brand"
-        />
-      </div>
+
       <div class="form-group">
         <input
           type="text"
@@ -69,21 +66,29 @@
     </form>
 
     <script>
+      let price = document.getElementById("price").value;
+      let img = document.getElementById("img").value;
+      let brand = document.getElementById("brand").value;
+      let description = document.getElementById("description").value;
+      let name = document.getElementById("name").value;
+
       const getData = async () => {
-        await fetch("https://striveschool-api.herokuapp.com/api/product/", {
-          method: "POST",
-          body: {
-            name: "test",
-          },
-          headers: {
-            "content-type": "application/json",
-            authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzU1NTgyZWExZDAwMTViYjA0YWEiLCJpYXQiOjE2NDM4MDM5OTAsImV4cCI6MTY0NTAxMzU5MH0.EBBBgyHxBAaZYsrAM5kFRsagfARN6fIvvv4e36YYkQg",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
+        const product = await fetch(
+          "https://striveschool-api.herokuapp.com/api/product/",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              name: "test",
+            }),
+            headers: {
+              "content-type": "application/json",
+              authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzU1NTgyZWExZDAwMTViYjA0YWEiLCJpYXQiOjE2NDM4MDM5OTAsImV4cCI6MTY0NTAxMzU5MH0.EBBBgyHxBAaZYsrAM5kFRsagfARN6fIvvv4e36YYkQg",
+            },
+          }
+        );
       };
+
       console.log(getData());
     </script>
 

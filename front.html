@@ -17,19 +17,16 @@
       const getdata = async () => {
         await fetch("https://striveschool-api.herokuapp.com/api/product/", {
           method: "GET",
-
           headers: {
-           
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzU1NTgyZWExZDAwMTViYjA0YWEiLCJpYXQiOjE2NDM4MDM5OTAsImV4cCI6MTY0NTAxMzU5MH0.EBBBgyHxBAaZYsrAM5kFRsagfARN6fIvvv4e36YYkQg",
           },
         })
-        
           .then((response) => response.json())
           .then((data) => console.log(data));
       };
       getdata();
-      console.log(getdata())
+      console.log(getdata());
     </script>
 
     <script
